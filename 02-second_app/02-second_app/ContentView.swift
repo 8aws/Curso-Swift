@@ -21,9 +21,9 @@ struct ContentView: View {
             .frame(width: 300)
           //  .clipped()
             .clipShape(Capsule())
-            .opacity(0.2)
+            .opacity(0.5)
         .overlay(
-            Text("Hola Corazon de melon y sandia que no te quiere ni tu tia que es mas alta que Mafalda")
+          /*  Text("Hola Corazon de melon y sandia que no te quiere ni tu tia que es mas alta que Mafalda")
                .fontWeight(.bold)
                 .multilineTextAlignment(.center)
                 .font(.system(.headline, design: .rounded))
@@ -33,7 +33,34 @@ struct ContentView: View {
                 .cornerRadius(10)
                 .opacity(0.7)
                 .padding(),
-                alignment: .bottom
+                alignment: .bottom */
+            Capsule()
+                .foregroundColor(.gray)
+                .opacity(0.3)
+            .overlay(
+            Text ("Hola a todos")
+                .font(.title)
+                .fontWeight(.bold)
+                .foregroundColor(.white)
+                .frame(width: 350)
+                .padding()
+                
+                .overlay(
+                    Image("logo")
+                    .resizable()
+                 //   .frame(width: 150, height: 250)
+                        .aspectRatio(contentMode: .fit)
+                    .clipShape(Circle()),
+                    alignment: .topTrailing
+                    
+                    
+                    
+        
+                    
+                    
+                    
+                )
+            )
                 
             
         )
