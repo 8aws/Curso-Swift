@@ -12,117 +12,16 @@ struct ContentView: View {
     var body: some View {
         
         
+    Text("hola")
+        
+    
+
         
         
-        VStack {
-            
-            firstRow()
-            
-            secondRow()
-            
-            thirdRow()
-        }
-        
-        
-        
-        
-    }
-}
+    }}
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-    }
-}
-
-struct cardView: View {
-    
-    var imageCard:String
-    var title:String
-    var subtitle:String
-    var author:String
-    var icon:String
-    var price:String
-    
-    var body: some View {
-        VStack (alignment: .leading){
-            
-            /*   var imageCard String - imagen cabecera
-             var title String - texto del titulo
-             var subtitleString - texto de subtitulo
-             var author String - Autor
-             var icon String - estrellitas
-             var price String - precio
-             */
-            
-            Image(imageCard)
-                .resizable()
-                .frame(width: 150, height: 100).scaledToFit()
-            
-            Text(title)
-                .font(.headline)
-            Text(subtitle)
-                .font(.subheadline)
-            Text(author)
-                .font(.caption)
-            
-            HStack {
-                Image(systemName: icon)
-                Image(systemName: icon)
-                Image(systemName: icon)
-                Image(systemName: icon)
-                Image(systemName: icon)
-                
-            }
-            
-            Text(price)
-                .font(.title)
-            
-        }.padding()
-    }
-}
-
-struct firstRow: View {
-    var body: some View {
-        HStack {
-            
-            cardView(imageCard: "camp", title: "Un dia Inolvidable", subtitle: "Vacaciones de Verano", author: "Un Servidor", icon: "star", price: "99.99€")
-            
-            cardView(imageCard: "balloon", title: "Un dia Inolvidable", subtitle: "Vacaciones de Verano", author: "Un Servidor", icon: "star", price: "99.99€")
-            
-            cardView(imageCard: "beach", title: "Un dia Inolvidable", subtitle: "Vacaciones de Verano", author: "Un Servidor", icon: "star", price: "99.99€")
-            
-            cardView(imageCard: "mountain", title: "Un dia Inolvidable", subtitle: "Vacaciones de Verano", author: "Un Servidor", icon: "star", price: "99.99€")
-        }
-    }
-}
-
-struct secondRow: View {
-    var body: some View {
-        HStack {
-            
-            cardView(imageCard: "balloon", title: "Un dia Inolvidable", subtitle: "Vacaciones de Verano", author: "Un Servidor", icon: "star", price: "99.99€")
-            
-            cardView(imageCard: "mountain", title: "Un dia Inolvidable", subtitle: "Vacaciones de Verano", author: "Un Servidor", icon: "star", price: "99.99€")
-            
-            cardView(imageCard: "camp", title: "Un dia Inolvidable", subtitle: "Vacaciones de Verano", author: "Un Servidor", icon: "star", price: "99.99€")
-            
-            cardView(imageCard: "beach", title: "Un dia Inolvidable", subtitle: "Vacaciones de Verano", author: "Un Servidor", icon: "star", price: "99.99€")
-        }
-    }
-}
-
-struct thirdRow: View {
-    var body: some View {
-        HStack {
-            
-            cardView(imageCard: "balloon", title: "Un dia Inolvidable", subtitle: "Vacaciones de Verano", author: "Un Servidor", icon: "star", price: "99.99€")
-            
-            cardView(imageCard: "beach", title: "Un dia Inolvidable", subtitle: "Vacaciones de Verano", author: "Un Servidor", icon: "star", price: "99.99€")
-            
-            cardView(imageCard: "camp", title: "Un dia Inolvidable", subtitle: "Vacaciones de Verano", author: "Un Servidor", icon: "star", price: "99.99€")
-            
-            cardView(imageCard: "mountain", title: "Un dia Inolvidable", subtitle: "Vacaciones de Verano", author: "Un Servidor", icon: "star", price: "99.99€")
-        }
     }
 }
