@@ -11,43 +11,29 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-            HeaderView()
+        
             
-            HStack{
-                PricingView(title: "Album", subtitle:"Mis mejores Vacaciones" , date: "Enero 2020", textColor: .white, backgroundColor: .green)
+            HeaderView(titleHeading: "Elige tu itinerario", subtitleHeading: "de aprendizaje")
+            
+            
+            ZStack(){
                 
-                ZStack{
-                PricingView(title: "Album", subtitle: "Mis peores Vacaciones" , date: "Marzo 2020", textColor: .white, backgroundColor: .gray)
+                PricingView(title: "Básico", subtitle:"Mis mejores Vacaciones" , date: "Enero 2020", textColor: .white, backgroundColor: .green, icon: "star")
+            
+             
                 
-                    Text("Mi album preferido")
-                        .font(.system(.caption, design: .rounded)).foregroundColor(.white).fontWeight(.black)
-                        .padding(8)
-                        .background(Color (.orange))
-                        .cornerRadius(60)
-                        .offset(x: 0, y: -103)
-                }
-                }.padding(.horizontal)
+                PricingView(title: "Album", subtitle: "Mis peores Vacaciones" , date: "Marzo 2020", textColor: .white, backgroundColor: .gray, icon: "timer",  textLabel: "El mejor para empezar")
+                .offset(x: 0, y: 130)
+               
+                
            
           
-            PricingView(title: "Definitivo", subtitle: "Todos los cursos Online", date: "99.99€", textColor: .white, backgroundColor: .blue).padding(.horizontal)
-            
-             Text("Conviertete en un master del  universo")
-            .font(.system(.caption, design: .rounded)).foregroundColor(.white).fontWeight(.black)
-            .padding(8)
-            .background(Color (.orange))
-            .cornerRadius(60)
-            .offset(x: 0, y: -163)
-            
-            Image(systemName: "lightbulb" )
-                .font(.largeTitle)
-                .foregroundColor(.white)
-            
-            .offset(x: 0, y: -170)
-                
-           
-            
-            
-                
+                PricingView(title: "Definitivo", subtitle: "Todos los cursos Online", date: "99.99€", textColor: .white, backgroundColor: .blue, icon: "lightbulb", textLabel: "Conviertete en un Master del Universo")
+            .offset(x: 0, y: 280)
+             
+                    
+            }
+            Spacer()
         }
         
     }
@@ -60,20 +46,29 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 struct HeaderView: View {
+    
+    var titleHeading:String
+    var subtitleHeading: String
+    
     var body: some View {
-        VStack(alignment: .trailing, spacing: 15 ){
+        HStack {
             
-            Text("Mis Albumes")
-                .fontWeight(.black)
-                .font(.system(.largeTitle, design: .rounded))
+            VStack(alignment: .leading){
+                
+                Text(titleHeading)
+                    .fontWeight(.black)
+                    .font(.system(.largeTitle, design: .rounded))
+                
+                
+                Text(subtitleHeading)
+                    .fontWeight(.black)
+                    .font(.system(.largeTitle, design: .rounded))
+                
+                
+            }
+            Spacer()
             
-            
-            Text("de Fotos")
-                .fontWeight(.black)
-                .font(.system(.largeTitle, design: .rounded))
-            
-            
-        }
+        }.padding()
     }
 }
 
@@ -84,10 +79,29 @@ struct PricingView: View {
     var date: String
     var textColor: Color
     var backgroundColor: Color
-    
+    var icon: String?
+    var textLabel: String?
     
     var body: some View {
         VStack{
+            
+            
+            textLabel.map({
+                Text($0)
+                .font(.system(.caption, design: .rounded)).foregroundColor(.white).fontWeight(.black)
+                .padding(12)
+                .background(Color (.orange))
+                .cornerRadius(20)
+                
+                
+            })
+            icon.map({
+                Image(systemName: $0)
+                    .font(.largeTitle)
+                    .foregroundColor(.white)
+            })
+            
+            
             Text(title)
                 .font(.system(.title, design: .rounded))
                 .fontWeight(.bold)
@@ -102,7 +116,9 @@ struct PricingView: View {
                 .foregroundColor(textColor)
             
         }
-        .padding(30)
+        
+       .padding(30)
+        
         .background(backgroundColor)
         .cornerRadius(30)
     }
