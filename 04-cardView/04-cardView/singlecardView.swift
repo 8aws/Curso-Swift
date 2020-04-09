@@ -41,50 +41,52 @@ struct cardView: View {
             var oldprice:String
             
             var body: some View {
-                VStack (alignment: .leading){
-                    
-                    /*   var imageCard String - imagen cabecera
-                     var title String - texto del titulo
-                     var subtitleString - texto de subtitulo
-                     var author String - Autor
-                     var icon String - estrellitas
-                     var price String - precio
-                     */
-                    
+                VStack {
+                   
                     Image(imageCard)
                         .resizable()
+                        
                         .frame(width: 150, height: 100).scaledToFit()
-                    
-                    Text(title)
-                        .font(.headline)
-                    Text(subtitle)
-                        .font(.subheadline)
-                    Text(author)
-                        .font(.caption)
-                    
-                    HStack {
-                        Image(systemName: icon)
-                        Image(systemName: icon)
-                        Image(systemName: icon)
-                        Image(systemName: icon)
-                        Image(systemName: icon)
                         
-                    }
                     
-                    HStack {
-                        Text(price)
+                    VStack (alignment: .leading) {
+                        Text(title)
                             .font(.headline)
-                            .foregroundColor(.primary)
+                        Text(subtitle)
+                            .font(.subheadline)
+                        Text(author)
+                            .font(.caption)
                         
-                        Text(oldprice)
-                        .font(.caption)
-                            .foregroundColor(.secondary)
-                            .strikethrough()
+                        HStack {
+                            Image(systemName: icon)
+                            Image(systemName: icon)
+                            Image(systemName: icon)
+                            Image(systemName: icon)
+                            Image(systemName: icon)
+                            
+                        }
                         
+                        HStack {
+                            Text(price)
+                                .font(.headline)
+                                .foregroundColor(.primary)
+                            
+                            Text(oldprice)
+                            .font(.caption)
+                                .foregroundColor(.secondary)
+                                .strikethrough()
+                            
+                        }
                     }
                     
-                }.padding()
+                    .layoutPriority(10)
+                    Spacer()
+                }
+                .cornerRadius(20)
+                .overlay(RoundedRectangle(cornerRadius:20).stroke(Color(.gray).opacity(0.2), lineWidth: 2))
+                .padding([.top, .horizontal])
             }
+    
         }
 
 struct firstRow: View {
