@@ -50,7 +50,7 @@ struct cardView: View {
                         
                     
                     VStack (alignment: .leading) {
-                        Text(title)
+                        Text(title.uppercased())
                             .font(.headline)
                         Text(subtitle)
                             .font(.subheadline)
